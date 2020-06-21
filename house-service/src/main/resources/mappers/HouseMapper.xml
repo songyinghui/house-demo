@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.syh.senior5.mapper.HouseMapper">
+    <select id="getList" resultType="houseVo">
+        select * from t_house
+        <where>
+            <if test="vo.room!=null and vo.room&lt;5">
+                room=#{vo.room}
+            </if>
+            <if test="vo.room!=null and vo.room>4">
+                room>4
+            </if>
+            <if test="vo.minPrice!=null and vo.maxPrice!=null">
+                and rent between #{vo.minPrice} and #{vo.maxPrice}
+            </if>
+            <if test="vo.rent!=null">
+                and rent >8000
+            </if>
+            <if test="vo.county!=null">
+                and county =#{vo.county}
+            </if>
+        </where>
+    </select>
+</mapper>
