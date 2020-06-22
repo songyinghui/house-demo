@@ -13,6 +13,7 @@
         <module>zuul-proxy</module>
         <module>house-service</module>
         <module>config-server</module>
+        <module>config-client</module>
     </modules>
     <!---集成父项目-->
     <parent>
